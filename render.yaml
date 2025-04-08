@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: calm-corners-app
+    env: node
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+    healthCheckPath: /api/study-spaces

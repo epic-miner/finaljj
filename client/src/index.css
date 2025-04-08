@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-[#c7e5f5] text-slate-800 overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, .script-font {
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* Custom colors for the app */
+  .bg-lightblue {
+    @apply bg-[#c7e5f5];
+  }
+
+  .bg-beige {
+    @apply bg-[#e6d3a3];
+  }
+
+  .text-handwriting {
+    font-family: 'Playfair Display', cursive;
+    font-style: italic;
+  }
+
+  /* Rounded images like in the design */
+  .rounded-image {
+    border-radius: 28% 72% 50% 50% / 50% 50% 50% 50%;
+    overflow: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-[#c7e5f5];
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 rounded-full transition-colors;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
+  }
+  
+  /* Custom animations */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .float-slow {
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .float-fast {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Step progress indicator */
+  .step-indicator {
+    @apply relative flex items-center justify-center;
+  }
+  
+  .step-indicator::before {
+    content: '';
+    @apply absolute left-0 right-0 top-1/2 h-0.5 -translate-y-1/2 bg-blue-200;
+  }
+  
+  .step-circle {
+    @apply relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-white font-semibold;
+  }
+
+  .step-line {
+    @apply absolute left-0 top-1/2 h-0.5 -translate-y-1/2 bg-blue-500 transition-all;
+  }
+}
